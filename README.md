@@ -1,38 +1,44 @@
-# Amazon IVS Chat Web Demo Frontend
+# Amazon IVS eCommerce Web UI
 
-## Prerequisites
+## Prerequisites 
 
 * [NodeJS](https://nodejs.org/)
 * Npm is installed with Node.js
-* Amazon IVS Chat Demo backend (see [README.md](../serverless) in the `serverless` folder for details on the configuration) 
-
-## Configuration
-
-The following entries in `src/config.js` (inside the web-ui project directory) are used to configure the live video player and the chat websocket address. Both values will be made available to you when setting up the serverless backend using AWS CloudFormation. [Show me how](../serverless).
-
-* `PLAYBACK_URL`
-  * Amazon IVS live video stream to play inside the video player
-* `CHAT_WEBSOCKET`
-  * The websocket endpoint for the chat room: `wss://edge.ivschat.<aws-region>.amazonaws.com`. 
-  * For example, if your chat room is located in `us-west-2`, the websocket endpoint would be `wss://edge.ivschat.us-west-2.amazonaws.com`.
-* `API_URL`
-  * Endpoint for the [Amazon IVS Chat Demo](../serverless) Backend
-* `CHAT_ROOM_ID`
-  * The ID (or ARN) of the Amazon IVS Chat Room that the app should use.
-  * You must create an Amazon IVS Chat Room to get a chat room ID/ARN. Refer to [Getting Started with Amazon IVS Chat](https://docs.aws.amazon.com/ivs/latest/userguide/getting-started-chat.html) for a detailed guide.
+* Amazon IVS eCommerce demo Backend (Optional - see Configuration)
 
 ## Running the demo
 
-After you are done configuring the app, follow these instructions to run the demo:
+To get the web demo running, follow these instructions:
 
-1. [Install NodeJS](https://nodejs.org/). Download latest LTS version ("Recommended for Most Users")
+1. [Install NodeJS](https://nodejs.org/). Download latest LTS version ("Recommended for Most Users") 
 2. Navigate to the web-ui project directory on your local computer
 3. Run: npm install
 4. Run: npm start
+5. Open your web-browser and enter the URL: http://localhost:3000/
+
+## Configuration
+
+The following entries in src\config.js (inside the web-ui project directory) are used to display data in this demo
+
+* USE_MOCK_DATA 
+  - Set to "true" to use mock product data. This will not require an eCommerce Backend
+  - See ecommerece-web\serverless\README.md for details on the eCommerce Backend configuration
+
+* GET_PRODUCTS_API
+  - Uses eCommerce Backend API endpoint for retrieving the products list
+  - Set USE_MOCK_DATA to false
+  - Use the URL created when deploying eCommerce Backend
+
+* DEFAULT_VIDEO_STREAM
+  - Default video stream to play inside the video player
 
 ## Limitations
 
-* Message and user data for this demo is not saved/persistent (ie. reloading the page would go back to initial state).
+* Search doesn't filter products
+* Shopping cart isn't implemented
+* Avatar (user image) doesn't show user details
+* "Buy Now" button doesn't add items to cart 
+* "LIVE with Experts" doesn't link to any live video streams
 
 --------------------------------------------------
 
@@ -68,6 +74,7 @@ See the section about [deployment](https://create-react-app.dev/docs/deployment/
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
+
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Code Splitting

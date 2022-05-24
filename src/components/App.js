@@ -3,13 +3,13 @@
 
 import React from 'react';
 
-import Chat from './chat/Chat';
+import WebECommerce from './webECommerce/WebECommerce';
 
 function App() {
   return (
     <div className="App full-width full-height">
-      <Chat />
-    </div>    
+      <WebECommerce />
+    </div>
   );
 }
 

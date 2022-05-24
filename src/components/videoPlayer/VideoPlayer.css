@@ -2,12 +2,38 @@
 /* SPDX-License-Identifier: MIT-0 */
 
 :root {
-  --video-width: 88.4rem;
+  --video-width: 85.4rem;
 }
 
 .video-elem {
   top: 0;
-  background: #000;
+}
+
+.video-container {
+  display: block;
+  width: var(--video-width);
+  height: fit-content;
+  background: black;
+  border-radius: var(--radius);
+}
+
+.video-metadata-container {
+  font-family: var(--font-mono);
+  z-index: 999;
+  right: 2rem;
+  top: 2rem;
+}
+
+.video-metadata-container:empty {
+  display: none;
+}
+
+.video-metadata-item {
+  font-weight: 400;
+  font-size: .9rem;
+  height: 100%;
+  position: relative;
+  top: 0;
 }
 
 @media (max-width: 480px) { /* Smaller Screens */
